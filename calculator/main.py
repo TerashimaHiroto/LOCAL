@@ -24,13 +24,7 @@ class ActionButton(CalcButton):
 class ExtraActionButton(CalcButton):
     def __init__(self, text, button_clicked):
         CalcButton.__init__(self, text, button_clicked)
-        self.bgcolor = ft.colors.BLUE_GREY_100
-        self.color = ft.colors.BLACK
-
-class ScienceButton(CalcButton):
-    def __init__(self, text, button_clicked):
-        CalcButton.__init__(self, text, button_clicked)
-        self.bgcolor = ft.colors.BLUE_200
+        self.bgcolor = ft.colors.WHITE24
         self.color = ft.colors.WHITE
 
 class CalculatorApp(ft.Container):
@@ -87,15 +81,15 @@ class CalculatorApp(ft.Container):
                 ),
                 ft.Row(
                     controls=[
-                        ScienceButton(text="8%", button_clicked=self.button_clicked),
-                        ScienceButton(text="10%", button_clicked=self.button_clicked),
-                        ScienceButton(text="sin", button_clicked=self.button_clicked),
-                        ScienceButton(text="cos", button_clicked=self.button_clicked),
+                        ExtraActionButton(text="8%", button_clicked=self.button_clicked),
+                        ExtraActionButton(text="10%", button_clicked=self.button_clicked),
+                        ExtraActionButton(text="sin", button_clicked=self.button_clicked),
+                        ExtraActionButton(text="cos", button_clicked=self.button_clicked),
                     ]
                 ),
                 ft.Row(
                     controls=[
-                        ScienceButton(text="sqrt", button_clicked=self.button_clicked),
+                        ExtraActionButton(text="sqrt", button_clicked=self.button_clicked),
                     ]
                 ),
             ]
@@ -169,6 +163,8 @@ class CalculatorApp(ft.Container):
 
 def main(page: ft.Page):
     page.title = "Calc App"
+    page.window_width = 400
+    page.window_height = 600
     calc = CalculatorApp()
     page.add(calc)
 
